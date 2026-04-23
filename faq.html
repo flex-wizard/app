@@ -469,9 +469,7 @@
                 Offers seen while active are saved to your Calendar history.
               </p>
               <div class="shot-frame">
-                <div class="shot-placeholder">
-                  Add screenshot here: <code>./assets/faq/01-overlay-look.png</code>
-                </div>
+                <img class="faq-shot" data-file="01-overlay-look.jpeg" src="./assets/faq/01-overlay-look.jpeg" alt="Overlay look on top of Amazon Flex">
                 <p class="shot-caption">Overlay look on top of Amazon Flex.</p>
               </div>
               <div class="note">
@@ -495,9 +493,7 @@
                 <li>Manual entries can be deleted from this page.</li>
               </ul>
               <div class="shot-frame">
-                <div class="shot-placeholder">
-                  Add screenshot here: <code>./assets/faq/03-day-look.png</code>
-                </div>
+                <img class="faq-shot" data-file="03-day-look.jpeg" src="./assets/faq/03-day-look.jpeg" alt="Day screenshot with actual blocks and times">
                 <p class="shot-caption">Day screenshot: actual blocks listed with their times.</p>
               </div>
             </div>
@@ -521,9 +517,7 @@
               </ul>
               <p>Top pay filter hides offers below your chosen minimum.</p>
               <div class="shot-frame">
-                <div class="shot-placeholder">
-                  Add screenshot here: <code>./assets/faq/02-calendar-look.png</code>
-                </div>
+                <img class="faq-shot" data-file="02-calendar-look.jpg" src="./assets/faq/02-calendar-look.jpg" alt="Calendar month view with green dashes">
                 <p class="shot-caption">Calendar month view with green dashes.</p>
               </div>
             </div>
@@ -556,9 +550,7 @@
                 Insights readiness is strongest around <strong>20+ tracked blocks</strong>.
               </p>
               <div class="shot-frame">
-                <div class="shot-placeholder">
-                  Add screenshot here: <code>./assets/faq/08-insights-look.png</code>
-                </div>
+                <img class="faq-shot" data-file="08-insights-look.jpeg" src="./assets/faq/08-insights-look.jpeg" alt="Insights readiness progress and recommendations">
                 <p class="shot-caption">Insights screenshot: readiness/progress and recommendations.</p>
               </div>
             </div>
@@ -600,9 +592,7 @@
                 <li>Detects CAPTCHA screens but does not solve CAPTCHA for you.</li>
               </ul>
               <div class="shot-frame">
-                <div class="shot-placeholder">
-                  Add screenshot here: <code>./assets/faq/01-overlay-look.jpeg</code>
-                </div>
+                <img class="faq-shot" data-file="01-overlay-look.jpeg" src="./assets/faq/01-overlay-look.jpeg" alt="Block Grabber overlay on Amazon Flex">
                 <p class="shot-caption">Block Grabber overlay on Amazon Flex. Annotate this image with callouts: (1) Play button to start search, (2) Stop button to stop service, (3) overlay must stay on top of Amazon Flex.</p>
               </div>
             </div>
@@ -628,9 +618,7 @@
                 <li><strong>Manual:</strong> minutes you pick yourself.</li>
               </ul>
               <div class="shot-frame">
-                <div class="shot-placeholder">
-                  Add screenshot here: <code>./assets/faq/06-smart-timing-look.png</code>
-                </div>
+                <img class="faq-shot" data-file="06-smart-timing-look.jpeg" src="./assets/faq/06-smart-timing-look.jpeg" alt="Smart Timing screen with minute preset source">
                 <p class="shot-caption">Example: Smart Timing with minute preset source.</p>
               </div>
             </div>
@@ -660,9 +648,7 @@
                 A gold confirmation card appears in the center with grab details.
               </p>
               <div class="shot-frame">
-                <div class="shot-placeholder">
-                  Add screenshot here: <code>./assets/faq/07-gold-block-grabbed.png</code>
-                </div>
+                <img class="faq-shot" data-file="07-gold-block-grabbed.jpeg" src="./assets/faq/07-gold-block-grabbed.jpeg" alt="Gold confirmation card after successful grab">
                 <p class="shot-caption">Example: gold card shown after successful grab.</p>
               </div>
             </div>
@@ -674,6 +660,24 @@
   </main>
 
   <script>
+    const faqShotPaths = [
+      (name) => `./assets/faq/${name}`,
+      (name) => `./app/assets/faq/${name}`,
+      (name) => `./${name}`
+    ];
+
+    document.querySelectorAll("img.faq-shot[data-file]").forEach((img) => {
+      const fileName = img.getAttribute("data-file");
+      let attempt = 0;
+      const tryNextPath = () => {
+        if (attempt >= faqShotPaths.length) return;
+        img.src = faqShotPaths[attempt](fileName);
+        attempt += 1;
+      };
+      img.addEventListener("error", tryNextPath);
+      tryNextPath();
+    });
+
     const cards = document.querySelectorAll(".faq-card");
     cards.forEach((card) => {
       const items = card.querySelectorAll("details.faq-item");
