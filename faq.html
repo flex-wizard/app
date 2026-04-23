@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Autoclicker FAQ</title>
+  <style>
+    :root {
+      --bg-top: #0c1d31;
+      --bg-bottom: #112b3f;
+      --card: #f7fbff;
+      --text: #0f2a3d;
+      --muted: #4d6476;
+      --brand: #1384ad;
+      --brand-strong: #0f6b8d;
+      --ok: #14a525;
+      --warn: #bf6b16;
+      --line: #d7e5ef;
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 10% -10%, #1a4f74 0%, transparent 60%),
+        radial-gradient(800px 520px at 100% 0%, #114060 0%, transparent 65%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+      min-height: 100vh;
+      padding: 28px 14px 44px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
+      padding: 18px;
+      color: #f2f9ff;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      line-height: 1.5;
+      color: #d5ecff;
+      max-width: 780px;
+    }
+
+    .flow {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .flow-step {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .flow-step strong {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .play-demo {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 14px;
+    }
+
+    .play-icon {
+      width: 28px;
+      height: 28px;
+      display: inline-block;
+      flex: 0 0 auto;
+    }
+
+    .feature-split {
+      margin: 14px 0 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .feature-card {
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid #cfe2f0;
+      background: #f7fcff;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #0f3f57;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #23485e;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.2px;
+    }
+
+    .tag.free {
+      background: #e6f9ea;
+      color: #137023;
+      border: 1px solid #bdeac8;
+    }
+
+    .tag.premium {
+      background: #e7f5ff;
+      color: #0f5c87;
+      border: 1px solid #c9e5f8;
+    }
+
+    .faq {
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid #d8e8f3;
+    }
+
+    .faq-head {
+      padding: 18px 18px 10px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #f6fbff);
+    }
+
+    .faq-head h2 {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .faq-head p {
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 14px;
+    }
+
+    .faq-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(15, 42, 61, 0.08);
+    }
+
+    .faq-card.calendar-card {
+      border-color: #bfe4c9;
+    }
+
+    .faq-card.grabber-card {
+      border-color: #c8def1;
+    }
+
+    .faq-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-card.calendar-card .faq-card-head {
+      background: linear-gradient(180deg, #f4fff7, #ecfbf0);
+    }
+
+    .faq-card.grabber-card .faq-card-head {
+      background: linear-gradient(180deg, #f3f9ff, #eaf4ff);
+    }
+
+    .faq-card-head h3 {
+      font-size: 18px;
+      line-height: 1.2;
+      color: #173f56;
+    }
+
+    details.faq-item {
+      border-top: 1px solid var(--line);
+    }
+
+    details.faq-item:first-of-type {
+      border-top: none;
+    }
+
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 18px;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text);
+      transition: background 0.2s ease;
+    }
+
+    details.faq-item summary:hover {
+      background: #f2f9ff;
+    }
+
+    details.faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .chevron {
+      width: 12px;
+      height: 12px;
+      border-right: 2px solid var(--brand-strong);
+      border-bottom: 2px solid var(--brand-strong);
+      transform: rotate(45deg);
+      transition: transform 0.18s ease;
+      flex: 0 0 auto;
+      margin-right: 4px;
+    }
+
+    details[open] .chevron {
+      transform: rotate(-135deg);
+      margin-top: 4px;
+    }
+
+    .answer {
+      padding: 0 18px 16px;
+      color: var(--text);
+      line-height: 1.62;
+      font-size: 15px;
+    }
+
+    .answer p + p {
+      margin-top: 10px;
+    }
+
+    .answer ul {
+      margin: 10px 0 0 18px;
+    }
+
+    .answer li + li {
+      margin-top: 6px;
+    }
+
+    .good {
+      color: var(--ok);
+      font-weight: 700;
+    }
+
+    .warn {
+      color: var(--warn);
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #eefdff;
+      border: 1px solid #c5ebf3;
+      font-size: 14px;
+      color: #174b64;
+    }
+
+    .shot-frame {
+      margin-top: 12px;
+      border: 1px dashed #aac9de;
+      border-radius: 12px;
+      padding: 10px;
+      background: #f8fcff;
+    }
+
+    .shot-frame img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .shot-placeholder {
+      height: 180px;
+      border-radius: 10px;
+      border: 1px dashed #b7d2e4;
+      background: repeating-linear-gradient(
+        -45deg,
+        #f1f8ff,
+        #f1f8ff 10px,
+        #e8f3fc 10px,
+        #e8f3fc 20px
+      );
+      display: grid;
+      place-items: center;
+      color: #47718a;
+      font-size: 13px;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .shot-caption {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #3f6278;
+    }
+
+    @media (max-width: 760px) {
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-split {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      details.faq-item summary {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Calendar + Insights FAQ</h1>
+      <p>
+        The app has two connected features: Calendar for research/insights, and Block Grabber for active searching.
+        Calendar helps you learn patterns over time, and Block Grabber helps you act on those patterns.
+      </p>
+      <div class="flow">
+        <div class="flow-step">
+          <strong>Step 1</strong>
+          Start Service in the app.
+        </div>
+        <div class="flow-step">
+          <strong>Step 2</strong>
+          Open Amazon Flex and keep it in front.
+        </div>
+        <div class="flow-step">
+          <strong>Step 3</strong>
+          Tap the Play button on the overlay to begin tracking.
+        </div>
+      </div>
+      <div class="play-demo" aria-label="Overlay play button">
+        <svg class="play-icon" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14.498,29.004C10.783,29.004 7.07,27.589 4.24,24.76C-1.413,19.101 -1.413,9.899 4.24,4.24C9.894,-1.413 19.101,-1.413 24.76,4.24C30.413,9.899 30.413,19.101 24.76,24.76C21.931,27.589 18.216,29.004 14.502,29.004H14.498ZM14.498,1.936C11.274,1.936 8.056,3.161 5.606,5.611C0.706,10.516 0.706,18.489 5.606,23.394C10.507,28.294 18.484,28.294 23.389,23.394C28.289,18.489 28.289,10.516 23.389,5.611C20.939,3.161 17.716,1.936 14.498,1.936Z" fill="#eaf7ff"/>
+          <path d="M12.565,9.203L19.51,13.857A1,1 72.475,0 1,19.784 15.245L19.784,15.245A1,1 72.475,0 1,18.396 15.519L11.452,10.865A1,1 96.148,0 1,11.178 9.477L11.178,9.477A1,1 96.148,0 1,12.565 9.203z" fill="#eaf7ff"/>
+          <path d="M19.592,15.518L12.627,20.776A1,1 105.071,0 1,11.226 20.58L11.226,20.58A1,1 105.071,0 1,11.422 19.179L18.388,13.922A1,1 99.59,0 1,19.788 14.118L19.788,14.118A1,1 99.59,0 1,19.592 15.518z" fill="#eaf7ff"/>
+          <path d="M11,20L11,10A1,1 0,0 1,12 9L12,9A1,1 0,0 1,13 10L13,20A1,1 0,0 1,12 21L12,21A1,1 0,0 1,11 20z" fill="#eaf7ff"/>
+        </svg>
+        Play button (from app overlay icon)
+      </div>
+    </section>
+
+    <section class="feature-split" aria-label="Core features">
+      <article class="feature-card">
+        <h3>1) Calendar + Insights</h3>
+        <p>
+          This is your research engine. The app tracks when offers appear, where they appear,
+          and how much they pay so you can discover the best search windows and higher-paying trends.
+        </p>
+        <p>
+          Example: if you want a block around 10:00 AM every day, your tracked history can reveal
+          when those offers usually pop first.
+        </p>
+        <span class="tag free">Free Feature</span>
+      </article>
+
+      <article class="feature-card">
+        <h3>2) Block Grabber</h3>
+        <p>
+          This is the action engine. It works with flexible filters and uses the same offer stream,
+          while still contributing useful logs for your history.
+        </p>
+        <p>
+          It can auto-pause on blocking screens (like CAPTCHA prompts). It detects them, but you must solve
+          CAPTCHA yourself before resuming.
+        </p>
+        <span class="tag premium">Premium Feature</span>
+      </article>
+    </section>
+
+    <section class="faq">
+      <header class="faq-head">
+        <h2>Frequently Asked Questions</h2>
+        <p>Separated by feature so it is easier to scan. Tap any question to expand.</p>
+      </header>
+
+      <div class="faq-grid">
+        <article class="faq-card calendar-card">
+          <header class="faq-card-head">
+            <h3>Calendar</h3>
+            <span class="tag free">Free Feature</span>
+          </header>
+
+          <details class="faq-item" open>
+            <summary>
+              Is Calendar separate from Block Grabber?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                Yes. They are separate features, but they work together.
+                Calendar builds your history, and Block Grabber handles live searching.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How does the Calendar page work?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                Start service, open Amazon Flex, then tap Play on the overlay.
+                Offers seen while active are saved to your Calendar history.
+              </p>
+              <div class="shot-frame">
+                <div class="shot-placeholder">
+                  Add screenshot here: <code>./assets/faq/01-overlay-look.png</code>
+                </div>
+                <p class="shot-caption">Overlay look on top of Amazon Flex.</p>
+              </div>
+              <div class="note">
+                No Play + no active service + no Flex foreground = no new tracked offers.
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How does the Day page work?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                Tap any day with offers to open Day view. This page shows the actual block cards and their times.
+              </p>
+              <ul>
+                <li>Left side shows hour labels.</li>
+                <li>Each block card shows station, pay, duration, Seen time, and Start time.</li>
+                <li>Manual entries can be deleted from this page.</li>
+              </ul>
+              <div class="shot-frame">
+                <div class="shot-placeholder">
+                  Add screenshot here: <code>./assets/faq/03-day-look.png</code>
+                </div>
+                <p class="shot-caption">Day screenshot: actual blocks listed with their times.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How do the green dashes on Calendar days work?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                On the Calendar screenshot, each green dash is one tracked offer appearance.
+                Every day square is divided into roughly 24 time slices (hours).
+              </p>
+              <ul>
+                <li>Higher dashes = earlier morning hours.</li>
+                <li>Lower dashes = later evening/night hours.</li>
+                <li>More transparent green = lower pay.</li>
+                <li>More solid/strong green = higher pay.</li>
+              </ul>
+              <p>Top pay filter hides offers below your chosen minimum.</p>
+              <div class="shot-frame">
+                <div class="shot-placeholder">
+                  Add screenshot here: <code>./assets/faq/02-calendar-look.png</code>
+                </div>
+                <p class="shot-caption">Calendar month view with green dashes.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Why is my calendar not filling up?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <ul>
+                <li>Service not running.</li>
+                <li>Play is paused.</li>
+                <li>Amazon Flex is not foreground.</li>
+                <li>Permissions not fully enabled.</li>
+                <li>Pay filter is hiding lower-paid offers.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How long until insights become useful?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                Early hints start quickly, but stronger confidence comes with more history.
+                Insights readiness is strongest around <strong>20+ tracked blocks</strong>.
+              </p>
+              <div class="shot-frame">
+                <div class="shot-placeholder">
+                  Add screenshot here: <code>./assets/faq/08-insights-look.png</code>
+                </div>
+                <p class="shot-caption">Insights screenshot: readiness/progress and recommendations.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Do blocks appear on repeating minute patterns?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <ul>
+                <li>Oregon: often around :02, :07, :12, :17, then every 5 minutes.</li>
+                <li>San Diego: often around every 4-5 minutes, sometimes near :04.</li>
+                <li>Washington: often near 5-minute cadence, sometimes near :02.</li>
+              </ul>
+              <p>Use these as examples. Your own history is the source of truth.</p>
+            </div>
+          </details>
+
+        </article>
+
+        <article class="faq-card grabber-card">
+          <header class="faq-card-head">
+            <h3>Block Grabber</h3>
+            <span class="tag premium">Premium Feature</span>
+          </header>
+
+          <details class="faq-item" open>
+            <summary>
+              What does Block Grabber do?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <ul>
+                <li>Uses your filters to target wanted offers.</li>
+                <li>Runs continuous searching to save manual refresh time.</li>
+                <li>Can auto-pause on blocking/error states.</li>
+                <li>Detects CAPTCHA screens but does not solve CAPTCHA for you.</li>
+              </ul>
+              <div class="shot-frame">
+                <div class="shot-placeholder">
+                  Add screenshot here: <code>./assets/faq/01-overlay-look.png</code>
+                </div>
+                <p class="shot-caption">Block Grabber overlay on Amazon Flex. Annotate this image with callouts: (1) Play button to start search, (2) Stop button to stop service, (3) overlay must stay on top of Amazon Flex.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How does Smart Timing work, and why do we need it?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                Smart Timing concentrates faster refresh near likely drop minutes and stays calmer outside those minutes.
+              </p>
+              <p>Right now, this runs in Classic Mode only.</p>
+              <ul>
+                <li><strong>Calm mode:</strong> slower delay outside hunt minutes.</li>
+                <li><strong>Hunt mode:</strong> faster delay during hunt minutes.</li>
+              </ul>
+              <p>Minute preset sources:</p>
+              <ul>
+                <li><strong>Learned:</strong> from your saved appearance timing history (recent first, then full-history fallback).</li>
+                <li><strong>Manual:</strong> minutes you pick yourself.</li>
+              </ul>
+              <div class="shot-frame">
+                <div class="shot-placeholder">
+                  Add screenshot here: <code>./assets/faq/06-smart-timing-look.png</code>
+                </div>
+                <p class="shot-caption">Example: Smart Timing with minute preset source.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              I see “Block unavailable”. Is Block Grabber broken?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p><span class="warn">Short answer: no.</span> Usually this is competition timing.</p>
+              <p>
+                Example: block drops at 5:00:36, you see it at 5:00:38, another driver may already have accepted it.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              What happens after a block is grabbed?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                After a successful grab, Block Grabber auto-pauses and sends a notification.
+                A gold confirmation card appears in the center with grab details.
+              </p>
+              <div class="shot-frame">
+                <div class="shot-placeholder">
+                  Add screenshot here: <code>./assets/faq/07-gold-block-grabbed.png</code>
+                </div>
+                <p class="shot-caption">Example: gold card shown after successful grab.</p>
+              </div>
+            </div>
+          </details>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const cards = document.querySelectorAll(".faq-card");
+    cards.forEach((card) => {
+      const items = card.querySelectorAll("details.faq-item");
+      items.forEach((item) => {
+        item.addEventListener("toggle", () => {
+          if (!item.open) return;
+          items.forEach((other) => {
+            if (other !== item) other.open = false;
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
