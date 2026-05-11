@@ -1,6 +1,6 @@
 # Privacy Policy for Flex Wizard
 
-## Effective Date: [Insert Date]
+## Effective Date: May 11, 2026
 
 Flex Wizard ("we," "our," or "us") values your privacy and is committed to protecting your personal data. This Privacy Policy describes how we collect, use, and safeguard your information when you use our mobile application, Flex Wizard ("the App").
 
