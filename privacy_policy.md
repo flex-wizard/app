@@ -11,6 +11,8 @@ Flex Wizard ("we," "our," or "us") values your privacy and is committed to prote
 ### 1.1 Information You Provide
 We do not require you to create an account or provide personal information to use the App. However, if you contact us for support, we may collect the information you voluntarily provide, such as your email address or other contact details.
 
+Diagnostic logs in problem reports. When you use the in-app "Contact us" feature and select the "Problem report" template, the App can attach two small log files (capped at about 1 MB each) to your support email. These files are stored locally on your device and are only included in your email if you leave the "Attach diagnostic logs" checkbox ticked in the dialog. The logs contain technical information such as device model andscreen size, where the App tapped on screen during clicker actions, the price / duration / station code of Amazon Flex offers the App observed while running, and App state changes (e.g. paused / active, foreground app). The logs do not contain your email address, password, name, Amazon account credentials, photos, or location. You can review and remove the attachments in your email app before sending, or untick the checkbox in the dialog so that no log file is attached at all.
+
 ### 1.2 Information Collected Automatically
 When you use the App, we may collect certain information automatically, including:
 - **Device Information**: Model, operating system, unique device identifiers, and app version.
