@@ -352,6 +352,81 @@
       color: #3f6278;
     }
 
+    .site-footer {
+      margin: 18px auto 0;
+      max-width: 980px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #cfe3f3;
+      font-size: 13px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .site-footer a {
+      color: #8fd0ee;
+      font-weight: 600;
+    }
+
+    .consent {
+      display: none;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 9999;
+      max-width: 720px;
+      margin: 0 auto;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: #0f2a3d;
+      color: #eaf5ff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .consent p {
+      flex: 1 1 260px;
+      margin: 0;
+    }
+
+    .consent a {
+      color: #8fd0ee;
+      font-weight: 600;
+    }
+
+    .consent-actions {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .consent button {
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .consent .accept {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .consent .decline {
+      background: rgba(255, 255, 255, 0.14);
+      color: #eaf5ff;
+    }
+
     @media (max-width: 760px) {
       .flow {
         grid-template-columns: 1fr;
@@ -445,7 +520,7 @@
             <span class="tag free">Free Feature</span>
           </header>
 
-          <details class="faq-item" open>
+          <details class="faq-item">
             <summary>
               Is Calendar separate from Block Grabber?
               <span class="chevron" aria-hidden="true"></span>
@@ -600,7 +675,7 @@
             <span class="tag premium">Premium Feature</span>
           </header>
 
-          <details class="faq-item" open>
+          <details class="faq-item">
             <summary>
               What does Block Grabber do?
               <span class="chevron" aria-hidden="true"></span>
@@ -687,10 +762,95 @@
             </div>
           </details>
 
+          <details class="faq-item">
+            <summary>
+              What does Block Grabber do for me?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                Block Grabber is your tireless stand-in. It does the watching and tapping for you — all day, without
+                breaks — so you get your time back and your hands free while it reacts to offers for you.
+              </p>
+              <ul>
+                <li>It reacts faster and more consistently than refreshing by hand.</li>
+                <li>It works the same offer stream you would, using your filters to focus on the blocks you want.</li>
+                <li>It keeps contributing to your Calendar history while it runs.</li>
+              </ul>
+              <p class="note">
+                Think of it as a focused, reliable driver-assistant that never gets tired of refreshing.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Will Block Grabber get every block?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                It greatly improves your chances, but it works like a focused driver rather than a magic shortcut.
+                Amazon decides which offers appear, and every driver in your area is reacting to the same ones in real time.
+              </p>
+              <ul>
+                <li>Just like a skilled driver, it won't catch every single offer — and that's expected.</li>
+                <li>What it does give you is far more consistent reactions than tapping manually.</li>
+                <li>Good filters and more Calendar history help it focus on the blocks that matter most to you.</li>
+              </ul>
+              <p class="note">
+                Block Grabber is the consistency and speed edge — the offers themselves still come from Amazon.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Is it designed to be safe for my account?
+              <span class="chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="answer">
+              <p>
+                Yes. Block Grabber is built to act like a real person, refreshing and tapping at a natural,
+                human-like pace rather than at raw machine speed.
+              </p>
+              <ul>
+                <li>It's faster than the average person, yet intentionally tuned to stay in a realistic, human range.</li>
+                <li>It auto-pauses on screens like CAPTCHA instead of pushing through them.</li>
+                <li>This balanced approach keeps performance high while respecting your account.</li>
+              </ul>
+              <p class="note">
+                Smooth, human-like behavior is a core part of the design — not an afterthought.
+              </p>
+            </div>
+          </details>
+
         </article>
       </div>
     </section>
+
+    <footer class="site-footer">
+      <p>
+        Flex Wizard uses Google Analytics to understand how this page is used (for example,
+        which questions get opened) so we can improve the app. We do not collect your name,
+        email, or other personal identity information on this page. By using this page, you
+        consent to this anonymous usage tracking. Learn more in our
+        <a href="./index.html">Privacy Policy</a>.
+      </p>
+    </footer>
   </main>
+
+  <div class="consent" id="consent-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <p>
+      We use Google Analytics cookies to see how this page is used (for example, which questions get
+      opened) so we can improve the app. No personal identity data is collected. See our
+      <a href="./index.html">Privacy Policy</a>.
+    </p>
+    <div class="consent-actions">
+      <button class="decline" id="consent-decline" type="button">Decline</button>
+      <button class="accept" id="consent-accept" type="button">Accept</button>
+    </div>
+  </div>
 
   <script>
     const faqShotPaths = [
@@ -723,6 +883,155 @@
         });
       });
     });
+  </script>
+
+  <!--
+    Firebase Analytics
+    ------------------
+    Events logged:
+      - faq_page_view         : someone opened this FAQ page (param: from = which in-app
+                                button / source brought them here, e.g. clicker_info,
+                                clicker_howto, calendar_howto, or "direct")
+      - faq_question_open      : visitor opened a question. Logged ONCE per question per
+                                session, so it reflects which cards a user actually opened.
+                                (params: question, feature, from)
+      - faq_question_time      : how long a question stayed open
+                                (params: question, feature, seconds, engagement_time_msec)
+    View them in Firebase Console > Analytics, or in GA4 under Realtime / Events / DebugView.
+  -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+    import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSlhRpfhAF47SM6UVio5XD8MGBNyQ5pqs",
+      authDomain: "flex-wizard.firebaseapp.com",
+      projectId: "flex-wizard",
+      storageBucket: "flex-wizard.firebasestorage.app",
+      messagingSenderId: "668696983666",
+      appId: "1:668696983666:web:af44f5fe42aadc5b79aaeb",
+      measurementId: "G-PG6TVP7J4M"
+    };
+
+    // Analytics only starts after the visitor accepts the cookie banner.
+    let analyticsStarted = false;
+    function startAnalytics() {
+      if (analyticsStarted) return;
+      analyticsStarted = true;
+      try {
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+      // Where did the visitor come from? The app appends ?from=<button>.
+      const from = (new URLSearchParams(location.search).get("from") || "direct")
+        .replace(/[^a-z0-9_-]/gi, "")
+        .slice(0, 40);
+
+      logEvent(analytics, "faq_page_view", { from });
+
+      const meta = (item) => {
+        const summary = item.querySelector("summary");
+        const question = (summary ? summary.textContent : "")
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 100);
+        const card = item.closest(".faq-card");
+        const heading = card ? card.querySelector(".faq-card-head h3") : null;
+        const feature = heading ? heading.textContent.trim() : "unknown";
+        return { question, feature, from };
+      };
+
+      // Track which questions were already counted this browser session,
+      // so re-opening the same card does not inflate the count.
+      const countedThisSession = (question) => {
+        try {
+          const raw = sessionStorage.getItem("faq_opened");
+          const seen = new Set(raw ? JSON.parse(raw) : []);
+          if (seen.has(question)) return true;
+          seen.add(question);
+          sessionStorage.setItem("faq_opened", JSON.stringify([...seen]));
+          return false;
+        } catch (_) {
+          return false; // if storage is blocked, just log every open
+        }
+      };
+
+      const logOpenOncePerSession = (item) => {
+        const m = meta(item);
+        if (!countedThisSession(m.question)) {
+          logEvent(analytics, "faq_question_open", m);
+        }
+      };
+
+      const openedAt = new WeakMap();
+
+      const flush = (item) => {
+        const start = openedAt.get(item);
+        if (!start) return;
+        openedAt.delete(item);
+        const ms = Date.now() - start;
+        if (ms < 300) return; // ignore accidental flicks
+        logEvent(analytics, "faq_question_time", {
+          ...meta(item),
+          seconds: Math.round(ms / 1000),
+          engagement_time_msec: ms
+        });
+      };
+
+      const items = document.querySelectorAll("details.faq-item");
+
+      items.forEach((item) => {
+        // Count the questions that start expanded, so they aren't missed.
+        if (item.open) {
+          openedAt.set(item, Date.now());
+          logOpenOncePerSession(item);
+        }
+
+        item.addEventListener("toggle", () => {
+          if (item.open) {
+            openedAt.set(item, Date.now());
+            logOpenOncePerSession(item);
+          } else {
+            flush(item);
+          }
+        });
+      });
+
+      // Flush time for whatever is still open when the visitor leaves.
+      const flushAll = () => items.forEach(flush);
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden") flushAll();
+      });
+      window.addEventListener("pagehide", flushAll);
+      } catch (e) {
+        console.warn("Firebase Analytics not initialized:", e);
+      }
+    }
+
+    // Cookie consent gate: required for UK/EU-style consent before analytics runs.
+    const CONSENT_KEY = "faq_analytics_consent";
+    const banner = document.getElementById("consent-banner");
+    let consentChoice = null;
+    try { consentChoice = localStorage.getItem(CONSENT_KEY); } catch (_) {}
+
+    const rememberConsent = (v) => { try { localStorage.setItem(CONSENT_KEY, v); } catch (_) {} };
+    const hideBanner = () => { if (banner) banner.style.display = "none"; };
+
+    if (consentChoice === "accepted") {
+      startAnalytics();
+    } else if (consentChoice === "declined") {
+      hideBanner();
+    } else if (banner) {
+      banner.style.display = "flex";
+      const acceptBtn = document.getElementById("consent-accept");
+      const declineBtn = document.getElementById("consent-decline");
+      if (acceptBtn) acceptBtn.addEventListener("click", () => {
+        rememberConsent("accepted"); hideBanner(); startAnalytics();
+      });
+      if (declineBtn) declineBtn.addEventListener("click", () => {
+        rememberConsent("declined"); hideBanner();
+      });
+    }
   </script>
 </body>
 </html>
